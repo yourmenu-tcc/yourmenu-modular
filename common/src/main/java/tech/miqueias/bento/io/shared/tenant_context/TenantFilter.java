@@ -67,31 +67,49 @@ public class TenantFilter implements ContainerRequestFilter {
                 .build());
     }
 
-    private Long resolveRestauranteId(ContainerRequestContext requestContext) {
-        String headerValue = requestContext.getHeaderString("X-Restaurante-Id");
-        if (headerValue != null && !headerValue.isBlank()) {
+    private Long resolveRestauranteId(ContainerRequestContext request) {
+        String header = request.getHeaderString("X-Restaurante-Id");
+        String path  = request.getUriInfo().getPathParameters().getFirst("restauranteId");
+
+        if(path != null) {
+            Long idDaRota;
             try {
-                return Long.valueOf(headerValue.trim());
-            } catch (NumberFormatException ignored) {
-                requestContext.abortWith(Response.status(Response.Status.BAD_REQUEST)
-                        .entity("O cabeçalho X-Restaurante-Id deve ser um identificador numérico.")
+                idDaRota = Long.parseLong(path);
+            } catch (NumberFormatException e) {
+                request.abortWith(Response.status(Response.Status.BAD_REQUEST)
+                        .entity("O parâmetro de rota restauranteId deve ser um número válido.")
+                        .build());
+                return null;
+            }
+
+            if(header != null) {
+                try {
+                    if (!idDaRota.equals(Long.valueOf(header.trim()))) {
+                        request.abortWith(Response.status(Response.Status.BAD_REQUEST)
+                                .entity("O valor do cabeçalho X-Restaurante-Id não corresponde ao parâmetro de rota restauranteId.")
+                                .build());
+                        return null;
+                    }
+                } catch (NumberFormatException e) {
+                    request.abortWith(Response.status(Response.Status.BAD_REQUEST)
+                            .entity("O cabeçalho X-Restaurante-Id deve ser um número válido.")
+                            .build());
+                    return null;
+                }
+            }
+            return idDaRota;
+        }
+
+        if(header != null && !header.isBlank()) {
+            try {
+                return Long.valueOf(header.trim());
+            } catch (NumberFormatException e) {
+                request.abortWith(Response.status(Response.Status.BAD_REQUEST)
+                        .entity("O cabeçalho X-Restaurante-Id deve ser um número válido.")
                         .build());
                 return null;
             }
         }
-
-        String pathValue = requestContext.getUriInfo().getPathParameters().getFirst("restauranteId");
-        if (pathValue != null && !pathValue.isBlank()) {
-            try {
-                return Long.valueOf(pathValue);
-            } catch (NumberFormatException ignored) {
-                requestContext.abortWith(Response.status(Response.Status.BAD_REQUEST)
-                        .entity("O parâmetro restauranteId deve ser numérico.")
-                        .build());
-                return null;
-            }
-        }
-
         return null;
     }
 }
