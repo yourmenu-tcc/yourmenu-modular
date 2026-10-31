@@ -37,6 +37,16 @@ A atualização automática de esquema está desabilitada (`schema-management.st
 
 ## Validação funcional local
 
+Para usar os dois módulos manualmente pelo Insomnia, com banco e chaves de teste descartáveis, execute na raiz:
+
+```sh
+python3 scripts/serve_local.py
+```
+
+O comando compila os módulos, inicia PostgreSQL local em Docker e disponibiliza uma API unificada em `http://127.0.0.1:8080`. `identity-admin` atende autenticação, usuários, restaurante e colaboradores; `commerce` atende catálogo, zonas e pedidos. O banco começa vazio, portanto contas antigas não estarão disponíveis. Pressione Ctrl+C para encerrar e remover o banco e as chaves; use `--port 8082` se a porta 8080 estiver ocupada. Esse iniciador executa os artefatos Lambda da versão 3.38.1 e evita a falha conhecida do `quarkus:dev` nessa versão.
+
+Para a validação automatizada completa:
+
 Requer Docker, OpenSSL, Python 3, Java 25 e os dois artefatos JVM construídos. Execute:
 
 ```sh

@@ -229,12 +229,9 @@ def main():
             zone = api(commerce, 'POST', prefix+'/zonas-de-entrega', 201, {'localizacao':'Centro','valor':7.5}, manager)['id']
             other_zone = api(commerce, 'POST', f'/api/restaurantes/{b}/zonas-de-entrega', 201, {'localizacao':'Tenant B only','valor':9}, admin)['id']
             status, leaked, _ = commerce.invoke('GET', f'/api/restaurantes/{b}/zonas-de-entrega', token=manager, headers={'x-restaurante-id':str(a)})
-            if status == 200 and any(z['id']==other_zone for z in leaked):
-                observation = 'Inherited tenant risk: GET zones for B with manager of A and X-Restaurante-Id=A returns B data; TenantFilter header precedence and missing service-level access check.'
-                OBSERVATIONS.append(observation)
-                print('KNOWN BASELINE RISK:', observation, flush=True)
-            else:
-                check(status in (400,403), 'Conflicting header and path tenant rejected on read')
+            check(status == 400, f'Conflicting header and path tenant -> 400 (actual {status})')
+            check(not isinstance(leaked, list) or not any(z['id'] == other_zone for z in leaked),
+                  'Conflicting tenant request does not expose zones from B')
             order = {'tipoEntrega':'ENTREGA', 'cliente':{'primeiroNome':'Ana','ultimoNome':'Silva','telefone':'85999999999'}, 'endereco':{'zonaDeEntregaId':zone,'cep':'60000000','cidade':'Fortaleza','rua':'Rua A','numero':'1','bairro':'Centro'}, 'itens':[{'quantidade':2,'produtos':[{'pratoId':dish,'divisao':1}]}]}
             created = api(commerce, 'POST', prefix+'/pedidos', 201, order)
             check(created['preco'] == 87.5, 'Order preserves product price and delivery fee')
