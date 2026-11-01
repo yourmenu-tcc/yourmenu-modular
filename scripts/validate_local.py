@@ -232,9 +232,24 @@ def main():
             check(status == 400, f'Conflicting header and path tenant -> 400 (actual {status})')
             check(not isinstance(leaked, list) or not any(z['id'] == other_zone for z in leaked),
                   'Conflicting tenant request does not expose zones from B')
+            statuses = ('RASCUNHO', 'RECEBIDO', 'EM_PREPARO', 'PRONTO',
+                        'SAIU_PARA_ENTREGA', 'ENTREGUE', 'CANCELADO')
+            empty_summary = {'totalPedidos': 0, 'totalPedidosAbertos': 0,
+                             'totalPedidosCancelados': 0, 'totalPedidosConcluidos': 0,
+                             'pedidosPorStatus': {status: 0 for status in statuses}}
+            check(api(commerce, 'GET', prefix+'/pedidos/resumo', 200, token=manager) == empty_summary,
+                  'Empty restaurant has zero order summary')
+            api(commerce, 'GET', prefix+'/pedidos/resumo', 401)
+            api(commerce, 'GET', f'/api/restaurantes/{b}/pedidos/resumo', 403, token=manager)
+            api(commerce, 'GET', f'/api/restaurantes/{b}/pedidos/resumo', 400,
+                token=manager, headers={'x-restaurante-id':str(a)})
             order = {'tipoEntrega':'ENTREGA', 'cliente':{'primeiroNome':'Ana','ultimoNome':'Silva','telefone':'85999999999'}, 'endereco':{'zonaDeEntregaId':zone,'cep':'60000000','cidade':'Fortaleza','rua':'Rua A','numero':'1','bairro':'Centro'}, 'itens':[{'quantidade':2,'produtos':[{'pratoId':dish,'divisao':1}]}]}
             created = api(commerce, 'POST', prefix+'/pedidos', 201, order)
             check(created['preco'] == 87.5, 'Order preserves product price and delivery fee')
+            received_summary = dict(empty_summary, totalPedidos=1, totalPedidosAbertos=1,
+                                    pedidosPorStatus=dict(empty_summary['pedidosPorStatus'], RECEBIDO=1))
+            check(api(commerce, 'GET', prefix+'/pedidos/resumo', 200, token=employee) == received_summary,
+                  'Employee sees one received order in own restaurant summary')
             order_id = created['id']
             api(commerce, 'GET', prefix+f'/pedidos/{order_id}', 200, token=manager)
             api(commerce, 'DELETE', prefix+f'/categorias/{cat}', 400, token=manager)
@@ -247,6 +262,35 @@ def main():
             check(len(orders)==1, 'Invalid order leaves no partial persisted order')
             api(commerce, 'PATCH', prefix+f'/pedidos/{order_id}/status', 200, {'status':'EM_PREPARO'}, manager)
             api(commerce, 'DELETE', prefix+f'/pedidos/{order_id}', 204, token=manager)
+            api(commerce, 'POST', prefix+'/pedidos', 201, order)
+            delivered_id = api(commerce, 'POST', prefix+'/pedidos', 201, order)['id']
+            for next_status in ('EM_PREPARO', 'PRONTO', 'SAIU_PARA_ENTREGA', 'ENTREGUE'):
+                api(commerce, 'PATCH', prefix+f'/pedidos/{delivered_id}/status', 200,
+                    {'status':next_status}, manager)
+            mixed_summary = {'totalPedidos': 3, 'totalPedidosAbertos': 1,
+                             'totalPedidosCancelados': 1, 'totalPedidosConcluidos': 1,
+                             'pedidosPorStatus': dict(empty_summary['pedidosPorStatus'],
+                                                      RECEBIDO=1, ENTREGUE=1, CANCELADO=1)}
+            check(api(commerce, 'GET', prefix+'/pedidos/resumo', 200, token=manager) == mixed_summary,
+                  'Summary counts open, cancelled and delivered orders once each')
+            b_prefix = f'/api/restaurantes/{b}'
+            b_cat = api(commerce, 'POST', b_prefix+'/categorias', 201,
+                        {'nome':'B only','descricao':''}, admin)['id']
+            b_dish = api(commerce, 'POST', b_prefix+'/pratos', 201,
+                         {'nome':'B dish','descricao':'Only B','categoriaId':b_cat,
+                          'preco':10,'imagemUrl':'image'}, admin)['id']
+            b_order = copy.deepcopy(order)
+            b_order['tipoEntrega'] = 'RETIRADA'
+            b_order.pop('endereco')
+            b_order['itens'][0]['produtos'][0]['pratoId'] = b_dish
+            api(commerce, 'POST', b_prefix+'/pedidos', 201, b_order)
+            b_summary = dict(empty_summary, totalPedidos=1, totalPedidosAbertos=1,
+                             pedidosPorStatus=dict(empty_summary['pedidosPorStatus'], RECEBIDO=1))
+            check(api(commerce, 'GET', b_prefix+'/pedidos/resumo', 200, token=admin) == b_summary,
+                  'Administrator sees B order summary')
+            check(api(commerce, 'GET', prefix+'/pedidos/resumo', 200, token=manager) == mixed_summary,
+                  'B order does not change A summary')
+            api(commerce, 'GET', b_prefix+'/pedidos/resumo', 403, token=manager)
             for p in processes:
                 if p.poll() is None:
                     p.terminate(); p.wait(timeout=20)
