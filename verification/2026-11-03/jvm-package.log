@@ -1,0 +1,465 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] yourmenu-modular                                                   [pom]
+[INFO] yourmenu-common                                                    [jar]
+[INFO] yourmenu-identity-admin                                        [quarkus]
+[INFO] yourmenu-commerce                                              [quarkus]
+[INFO] 
+[INFO] --------------< tech.miqueias_bento.io:yourmenu-modular >---------------
+[INFO] Building yourmenu-modular 1.0.0-SNAPSHOT                           [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ yourmenu-modular ---
+[INFO] Deleting /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/target
+[INFO] 
+[INFO] ---------------< tech.miqueias_bento.io:yourmenu-common >---------------
+[INFO] Building yourmenu-common 1.0.0-SNAPSHOT                            [2/4]
+[INFO]   from common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ yourmenu-common ---
+[INFO] Deleting /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/common/target
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ yourmenu-common ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ yourmenu-common ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 17 source files with javac [debug parameters release 25] to target/classes
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ yourmenu-common ---
+[INFO] skip non existing resourceDirectory /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/common/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ yourmenu-common ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters release 25] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ yourmenu-common ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ yourmenu-common ---
+[INFO] Building jar: /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/common/target/yourmenu-common-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] -----------< tech.miqueias_bento.io:yourmenu-identity-admin >-----------
+[INFO] Building yourmenu-identity-admin 1.0.0-SNAPSHOT                    [3/4]
+[INFO]   from identity-admin/pom.xml
+[INFO] ------------------------------[ quarkus ]-------------------------------
+[WARNING] The artifact io.quarkus:quarkus-junit5:jar:3.38.1 has been relocated to io.quarkus:quarkus-junit:jar:3.38.1: Update the artifactId in your project build file. Refer to https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.31 for more information.
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ yourmenu-identity-admin ---
+[INFO] Deleting /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/identity-admin/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ yourmenu-identity-admin ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- quarkus:3.38.1:generate-code (default-generate-code) @ yourmenu-identity-admin ---
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ yourmenu-identity-admin ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 21 source files with javac [debug parameters release 25] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ yourmenu-identity-admin ---
+[INFO] skip non existing resourceDirectory /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/identity-admin/src/test/resources
+[INFO] 
+[INFO] --- quarkus:3.38.1:generate-code-tests (default-generate-code-tests) @ yourmenu-identity-admin ---
+[WARNING] Failed to get hostname, using 'localhost'
+java.net.UnknownHostException: jdk.internal.util.Exceptions$NonSocketInfo@33c976b1IdeaPad-Slim-3: Temporary failure in name resolution
+    at java.net.InetAddress.getLocalHost (InetAddress.java:1800)
+    at org.eclipse.aether.internal.impl.synccontext.named.DiscriminatingNameMapper.getHostname (DiscriminatingNameMapper.java:90)
+    at org.eclipse.aether.internal.impl.synccontext.named.DiscriminatingNameMapper.<init> (DiscriminatingNameMapper.java:69)
+    at org.eclipse.aether.internal.impl.synccontext.named.NameMappers.discriminatingNameMapper (NameMappers.java:129)
+    at org.eclipse.aether.internal.impl.synccontext.named.providers.DiscriminatingNameMapperProvider.<init> (DiscriminatingNameMapperProvider.java:39)
+    at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance (DirectConstructorHandleAccessor.java:62)
+    at java.lang.reflect.Constructor.newInstanceWithCaller (Constructor.java:499)
+    at java.lang.reflect.Constructor.newInstance (Constructor.java:483)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:34)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.BeanSupplier.lambda$transform$1 (BeanSupplier.java:42)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getAllBeansWithNames (Scope.java:145)
+    at io.smallrye.beanbag.AllBeansWithNamesResolver.get (AllBeansWithNamesResolver.java:18)
+    at io.smallrye.beanbag.AllBeansWithNamesResolver.get (AllBeansWithNamesResolver.java:8)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.Scope.requireBean (Scope.java:164)
+    at io.smallrye.beanbag.BeanBag.requireBean (BeanBag.java:85)
+    at io.smallrye.beanbag.maven.MavenFactory.getRepositorySystem (MavenFactory.java:167)
+    at io.quarkus.bootstrap.resolver.maven.BootstrapMavenContext.initRepoSystemAndManager (BootstrapMavenContext.java:945)
+    at io.quarkus.bootstrap.resolver.maven.BootstrapMavenContext.getRepositorySystem (BootstrapMavenContext.java:308)
+    at io.quarkus.bootstrap.resolver.maven.MavenArtifactResolver.<init> (MavenArtifactResolver.java:113)
+    at io.quarkus.maven.components.QuarkusWorkspaceProvider.createArtifactResolver (QuarkusWorkspaceProvider.java:115)
+    at io.quarkus.maven.QuarkusBootstrapProvider$QuarkusMavenAppBootstrap.artifactResolver (QuarkusBootstrapProvider.java:279)
+    at io.quarkus.maven.QuarkusBootstrapProvider$QuarkusMavenAppBootstrap.doBootstrap (QuarkusBootstrapProvider.java:302)
+    at io.quarkus.maven.QuarkusBootstrapProvider$QuarkusMavenAppBootstrap.bootstrapApplication (QuarkusBootstrapProvider.java:467)
+    at io.quarkus.maven.QuarkusBootstrapProvider.bootstrapApplication (QuarkusBootstrapProvider.java:201)
+    at io.quarkus.maven.QuarkusBootstrapProvider.bootstrapApplication (QuarkusBootstrapProvider.java:196)
+    at io.quarkus.maven.QuarkusBootstrapMojo.bootstrapApplication (QuarkusBootstrapMojo.java:326)
+    at io.quarkus.maven.GenerateCodeMojo.generateCode (GenerateCodeMojo.java:89)
+    at io.quarkus.maven.GenerateCodeTestsMojo.doExecute (GenerateCodeTestsMojo.java:41)
+    at io.quarkus.maven.QuarkusBootstrapMojo.execute (QuarkusBootstrapMojo.java:183)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:126)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:328)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:316)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:212)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:174)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.access$000 (MojoExecutor.java:75)
+    at org.apache.maven.lifecycle.internal.MojoExecutor$1.run (MojoExecutor.java:162)
+    at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute (DefaultMojosExecutionStrategy.java:39)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:159)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:105)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:73)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:53)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:118)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:104)
+    at java.lang.reflect.Method.invoke (Method.java:565)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+Caused by: java.net.UnknownHostException: IdeaPad-Slim-3: Temporary failure in name resolution
+    at java.net.Inet4AddressImpl.lookupAllHostAddr (Native Method)
+    at java.net.Inet4AddressImpl.lookupAllHostAddr (Inet4AddressImpl.java:45)
+    at java.net.InetAddress$PlatformResolver.lookupByName (InetAddress.java:1134)
+    at java.net.InetAddress.getAddressesFromNameService (InetAddress.java:1712)
+    at java.net.InetAddress$NameServiceAddresses.get (InetAddress.java:1060)
+    at java.net.InetAddress.getAllByName0 (InetAddress.java:1702)
+    at java.net.InetAddress.getLocalHost (InetAddress.java:1796)
+    at org.eclipse.aether.internal.impl.synccontext.named.DiscriminatingNameMapper.getHostname (DiscriminatingNameMapper.java:90)
+    at org.eclipse.aether.internal.impl.synccontext.named.DiscriminatingNameMapper.<init> (DiscriminatingNameMapper.java:69)
+    at org.eclipse.aether.internal.impl.synccontext.named.NameMappers.discriminatingNameMapper (NameMappers.java:129)
+    at org.eclipse.aether.internal.impl.synccontext.named.providers.DiscriminatingNameMapperProvider.<init> (DiscriminatingNameMapperProvider.java:39)
+    at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance (DirectConstructorHandleAccessor.java:62)
+    at java.lang.reflect.Constructor.newInstanceWithCaller (Constructor.java:499)
+    at java.lang.reflect.Constructor.newInstance (Constructor.java:483)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:34)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.BeanSupplier.lambda$transform$1 (BeanSupplier.java:42)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getAllBeansWithNames (Scope.java:145)
+    at io.smallrye.beanbag.AllBeansWithNamesResolver.get (AllBeansWithNamesResolver.java:18)
+    at io.smallrye.beanbag.AllBeansWithNamesResolver.get (AllBeansWithNamesResolver.java:8)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.Scope.requireBean (Scope.java:164)
+    at io.smallrye.beanbag.BeanBag.requireBean (BeanBag.java:85)
+    at io.smallrye.beanbag.maven.MavenFactory.getRepositorySystem (MavenFactory.java:167)
+    at io.quarkus.bootstrap.resolver.maven.BootstrapMavenContext.initRepoSystemAndManager (BootstrapMavenContext.java:945)
+    at io.quarkus.bootstrap.resolver.maven.BootstrapMavenContext.getRepositorySystem (BootstrapMavenContext.java:308)
+    at io.quarkus.bootstrap.resolver.maven.MavenArtifactResolver.<init> (MavenArtifactResolver.java:113)
+    at io.quarkus.maven.components.QuarkusWorkspaceProvider.createArtifactResolver (QuarkusWorkspaceProvider.java:115)
+    at io.quarkus.maven.QuarkusBootstrapProvider$QuarkusMavenAppBootstrap.artifactResolver (QuarkusBootstrapProvider.java:279)
+    at io.quarkus.maven.QuarkusBootstrapProvider$QuarkusMavenAppBootstrap.doBootstrap (QuarkusBootstrapProvider.java:302)
+    at io.quarkus.maven.QuarkusBootstrapProvider$QuarkusMavenAppBootstrap.bootstrapApplication (QuarkusBootstrapProvider.java:467)
+    at io.quarkus.maven.QuarkusBootstrapProvider.bootstrapApplication (QuarkusBootstrapProvider.java:201)
+    at io.quarkus.maven.QuarkusBootstrapProvider.bootstrapApplication (QuarkusBootstrapProvider.java:196)
+    at io.quarkus.maven.QuarkusBootstrapMojo.bootstrapApplication (QuarkusBootstrapMojo.java:326)
+    at io.quarkus.maven.GenerateCodeMojo.generateCode (GenerateCodeMojo.java:89)
+    at io.quarkus.maven.GenerateCodeTestsMojo.doExecute (GenerateCodeTestsMojo.java:41)
+    at io.quarkus.maven.QuarkusBootstrapMojo.execute (QuarkusBootstrapMojo.java:183)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:126)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:328)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:316)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:212)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:174)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.access$000 (MojoExecutor.java:75)
+    at org.apache.maven.lifecycle.internal.MojoExecutor$1.run (MojoExecutor.java:162)
+    at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute (DefaultMojosExecutionStrategy.java:39)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:159)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:105)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:73)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:53)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:118)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:104)
+    at java.lang.reflect.Method.invoke (Method.java:565)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ yourmenu-identity-admin ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters release 25] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ yourmenu-identity-admin ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- quarkus:3.38.1:build (default-build) @ yourmenu-identity-admin ---
+[WARNING] [io.quarkus.arc.deployment.SplitPackageProcessor] Detected a split package usage which is considered a bad practice and should be avoided. Following packages were detected in multiple archives: 
+- "tech.miqueias.bento.io.colaborador" found in [tech.miqueias_bento.io:yourmenu-common:1.0.0-SNAPSHOT, tech.miqueias_bento.io:yourmenu-identity-admin:1.0.0-SNAPSHOT]
+- "tech.miqueias.bento.io.restaurante" found in [tech.miqueias_bento.io:yourmenu-common:1.0.0-SNAPSHOT, tech.miqueias_bento.io:yourmenu-identity-admin:1.0.0-SNAPSHOT]
+- "tech.miqueias.bento.io.usuario" found in [tech.miqueias_bento.io:yourmenu-common:1.0.0-SNAPSHOT, tech.miqueias_bento.io:yourmenu-identity-admin:1.0.0-SNAPSHOT]
+[INFO] [io.quarkus.deployment.pkg.jar.LegacyThinJarBuilder] Building thin jar: /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/identity-admin/target/yourmenu-identity-admin-1.0.0-SNAPSHOT-runner.jar
+[WARNING] [io.quarkus.deployment.pkg.jar.ParallelCommonsCompressArchiveCreator] Duplicate entry 'io/quarkus/hibernate/orm/panache/PanacheEntity.class': already added from 'Unknown source', ignoring entry from 'Current application'
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 7052ms
+[INFO] 
+[INFO] --------------< tech.miqueias_bento.io:yourmenu-commerce >--------------
+[INFO] Building yourmenu-commerce 1.0.0-SNAPSHOT                          [4/4]
+[INFO]   from commerce/pom.xml
+[INFO] ------------------------------[ quarkus ]-------------------------------
+[WARNING] The artifact io.quarkus:quarkus-junit5:jar:3.38.1 has been relocated to io.quarkus:quarkus-junit:jar:3.38.1: Update the artifactId in your project build file. Refer to https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.31 for more information.
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ yourmenu-commerce ---
+[INFO] Deleting /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/commerce/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ yourmenu-commerce ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- quarkus:3.38.1:generate-code (default-generate-code) @ yourmenu-commerce ---
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ yourmenu-commerce ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 41 source files with javac [debug parameters release 25] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ yourmenu-commerce ---
+[INFO] skip non existing resourceDirectory /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/commerce/src/test/resources
+[INFO] 
+[INFO] --- quarkus:3.38.1:generate-code-tests (default-generate-code-tests) @ yourmenu-commerce ---
+[WARNING] Failed to get hostname, using 'localhost'
+java.net.UnknownHostException: jdk.internal.util.Exceptions$NonSocketInfo@6b19f4b8IdeaPad-Slim-3: Temporary failure in name resolution
+    at java.net.InetAddress.getLocalHost (InetAddress.java:1800)
+    at org.eclipse.aether.internal.impl.synccontext.named.DiscriminatingNameMapper.getHostname (DiscriminatingNameMapper.java:90)
+    at org.eclipse.aether.internal.impl.synccontext.named.DiscriminatingNameMapper.<init> (DiscriminatingNameMapper.java:69)
+    at org.eclipse.aether.internal.impl.synccontext.named.NameMappers.discriminatingNameMapper (NameMappers.java:129)
+    at org.eclipse.aether.internal.impl.synccontext.named.providers.DiscriminatingNameMapperProvider.<init> (DiscriminatingNameMapperProvider.java:39)
+    at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance (DirectConstructorHandleAccessor.java:62)
+    at java.lang.reflect.Constructor.newInstanceWithCaller (Constructor.java:499)
+    at java.lang.reflect.Constructor.newInstance (Constructor.java:483)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:34)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.BeanSupplier.lambda$transform$1 (BeanSupplier.java:42)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getAllBeansWithNames (Scope.java:145)
+    at io.smallrye.beanbag.AllBeansWithNamesResolver.get (AllBeansWithNamesResolver.java:18)
+    at io.smallrye.beanbag.AllBeansWithNamesResolver.get (AllBeansWithNamesResolver.java:8)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.Scope.requireBean (Scope.java:164)
+    at io.smallrye.beanbag.BeanBag.requireBean (BeanBag.java:85)
+    at io.smallrye.beanbag.maven.MavenFactory.getRepositorySystem (MavenFactory.java:167)
+    at io.quarkus.bootstrap.resolver.maven.BootstrapMavenContext.initRepoSystemAndManager (BootstrapMavenContext.java:945)
+    at io.quarkus.bootstrap.resolver.maven.BootstrapMavenContext.getRepositorySystem (BootstrapMavenContext.java:308)
+    at io.quarkus.bootstrap.resolver.maven.MavenArtifactResolver.<init> (MavenArtifactResolver.java:113)
+    at io.quarkus.maven.components.QuarkusWorkspaceProvider.createArtifactResolver (QuarkusWorkspaceProvider.java:115)
+    at io.quarkus.maven.QuarkusBootstrapProvider$QuarkusMavenAppBootstrap.artifactResolver (QuarkusBootstrapProvider.java:279)
+    at io.quarkus.maven.QuarkusBootstrapProvider$QuarkusMavenAppBootstrap.doBootstrap (QuarkusBootstrapProvider.java:302)
+    at io.quarkus.maven.QuarkusBootstrapProvider$QuarkusMavenAppBootstrap.bootstrapApplication (QuarkusBootstrapProvider.java:467)
+    at io.quarkus.maven.QuarkusBootstrapProvider.bootstrapApplication (QuarkusBootstrapProvider.java:201)
+    at io.quarkus.maven.QuarkusBootstrapProvider.bootstrapApplication (QuarkusBootstrapProvider.java:196)
+    at io.quarkus.maven.QuarkusBootstrapMojo.bootstrapApplication (QuarkusBootstrapMojo.java:326)
+    at io.quarkus.maven.GenerateCodeMojo.generateCode (GenerateCodeMojo.java:89)
+    at io.quarkus.maven.GenerateCodeTestsMojo.doExecute (GenerateCodeTestsMojo.java:41)
+    at io.quarkus.maven.QuarkusBootstrapMojo.execute (QuarkusBootstrapMojo.java:183)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:126)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:328)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:316)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:212)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:174)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.access$000 (MojoExecutor.java:75)
+    at org.apache.maven.lifecycle.internal.MojoExecutor$1.run (MojoExecutor.java:162)
+    at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute (DefaultMojosExecutionStrategy.java:39)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:159)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:105)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:73)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:53)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:118)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:104)
+    at java.lang.reflect.Method.invoke (Method.java:565)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+Caused by: java.net.UnknownHostException: IdeaPad-Slim-3: Temporary failure in name resolution
+    at java.net.Inet4AddressImpl.lookupAllHostAddr (Native Method)
+    at java.net.Inet4AddressImpl.lookupAllHostAddr (Inet4AddressImpl.java:45)
+    at java.net.InetAddress$PlatformResolver.lookupByName (InetAddress.java:1134)
+    at java.net.InetAddress.getAddressesFromNameService (InetAddress.java:1712)
+    at java.net.InetAddress$NameServiceAddresses.get (InetAddress.java:1060)
+    at java.net.InetAddress.getAllByName0 (InetAddress.java:1702)
+    at java.net.InetAddress.getLocalHost (InetAddress.java:1796)
+    at org.eclipse.aether.internal.impl.synccontext.named.DiscriminatingNameMapper.getHostname (DiscriminatingNameMapper.java:90)
+    at org.eclipse.aether.internal.impl.synccontext.named.DiscriminatingNameMapper.<init> (DiscriminatingNameMapper.java:69)
+    at org.eclipse.aether.internal.impl.synccontext.named.NameMappers.discriminatingNameMapper (NameMappers.java:129)
+    at org.eclipse.aether.internal.impl.synccontext.named.providers.DiscriminatingNameMapperProvider.<init> (DiscriminatingNameMapperProvider.java:39)
+    at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance (DirectConstructorHandleAccessor.java:62)
+    at java.lang.reflect.Constructor.newInstanceWithCaller (Constructor.java:499)
+    at java.lang.reflect.Constructor.newInstance (Constructor.java:483)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:34)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.BeanSupplier.lambda$transform$1 (BeanSupplier.java:42)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getAllBeansWithNames (Scope.java:145)
+    at io.smallrye.beanbag.AllBeansWithNamesResolver.get (AllBeansWithNamesResolver.java:18)
+    at io.smallrye.beanbag.AllBeansWithNamesResolver.get (AllBeansWithNamesResolver.java:8)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.BeanResolver.get (BeanResolver.java:20)
+    at io.smallrye.beanbag.ConstructorSupplier.get (ConstructorSupplier.java:27)
+    at io.smallrye.beanbag.Bean$Pending.get (Bean.java:125)
+    at io.smallrye.beanbag.Bean.get (Bean.java:47)
+    at io.smallrye.beanbag.Scope.getBean (Scope.java:237)
+    at io.smallrye.beanbag.Scope.requireBean (Scope.java:164)
+    at io.smallrye.beanbag.BeanBag.requireBean (BeanBag.java:85)
+    at io.smallrye.beanbag.maven.MavenFactory.getRepositorySystem (MavenFactory.java:167)
+    at io.quarkus.bootstrap.resolver.maven.BootstrapMavenContext.initRepoSystemAndManager (BootstrapMavenContext.java:945)
+    at io.quarkus.bootstrap.resolver.maven.BootstrapMavenContext.getRepositorySystem (BootstrapMavenContext.java:308)
+    at io.quarkus.bootstrap.resolver.maven.MavenArtifactResolver.<init> (MavenArtifactResolver.java:113)
+    at io.quarkus.maven.components.QuarkusWorkspaceProvider.createArtifactResolver (QuarkusWorkspaceProvider.java:115)
+    at io.quarkus.maven.QuarkusBootstrapProvider$QuarkusMavenAppBootstrap.artifactResolver (QuarkusBootstrapProvider.java:279)
+    at io.quarkus.maven.QuarkusBootstrapProvider$QuarkusMavenAppBootstrap.doBootstrap (QuarkusBootstrapProvider.java:302)
+    at io.quarkus.maven.QuarkusBootstrapProvider$QuarkusMavenAppBootstrap.bootstrapApplication (QuarkusBootstrapProvider.java:467)
+    at io.quarkus.maven.QuarkusBootstrapProvider.bootstrapApplication (QuarkusBootstrapProvider.java:201)
+    at io.quarkus.maven.QuarkusBootstrapProvider.bootstrapApplication (QuarkusBootstrapProvider.java:196)
+    at io.quarkus.maven.QuarkusBootstrapMojo.bootstrapApplication (QuarkusBootstrapMojo.java:326)
+    at io.quarkus.maven.GenerateCodeMojo.generateCode (GenerateCodeMojo.java:89)
+    at io.quarkus.maven.GenerateCodeTestsMojo.doExecute (GenerateCodeTestsMojo.java:41)
+    at io.quarkus.maven.QuarkusBootstrapMojo.execute (QuarkusBootstrapMojo.java:183)
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:126)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2 (MojoExecutor.java:328)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute (MojoExecutor.java:316)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:212)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:174)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.access$000 (MojoExecutor.java:75)
+    at org.apache.maven.lifecycle.internal.MojoExecutor$1.run (MojoExecutor.java:162)
+    at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute (DefaultMojosExecutionStrategy.java:39)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:159)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:105)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:73)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:53)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:118)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:104)
+    at java.lang.reflect.Method.invoke (Method.java:565)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ yourmenu-commerce ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug parameters release 25] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ yourmenu-commerce ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- quarkus:3.38.1:build (default-build) @ yourmenu-commerce ---
+[INFO] [io.quarkus.deployment.pkg.jar.LegacyThinJarBuilder] Building thin jar: /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/commerce/target/yourmenu-commerce-1.0.0-SNAPSHOT-runner.jar
+[WARNING] [io.quarkus.deployment.pkg.jar.ParallelCommonsCompressArchiveCreator] Duplicate entry 'io/quarkus/hibernate/orm/panache/PanacheEntity.class': already added from 'Unknown source', ignoring entry from 'Current application'
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 5766ms
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for yourmenu-modular 1.0.0-SNAPSHOT:
+[INFO] 
+[INFO] yourmenu-modular ................................... SUCCESS [  0.109 s]
+[INFO] yourmenu-common .................................... SUCCESS [  2.940 s]
+[INFO] yourmenu-identity-admin ............................ SUCCESS [ 11.181 s]
+[INFO] yourmenu-commerce .................................. SUCCESS [  7.980 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  23.685 s
+[INFO] Finished at: 2026-11-03T02:28:45-03:00
+[INFO] ------------------------------------------------------------------------

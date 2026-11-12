@@ -1,0 +1,174 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] yourmenu-modular                                                   [pom]
+[INFO] yourmenu-common                                                    [jar]
+[INFO] yourmenu-identity-admin                                        [quarkus]
+[INFO] 
+[INFO] --------------< tech.miqueias_bento.io:yourmenu-modular >---------------
+[INFO] Building yourmenu-modular 1.0.0-SNAPSHOT                           [1/3]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] ---------------< tech.miqueias_bento.io:yourmenu-common >---------------
+[INFO] Building yourmenu-common 1.0.0-SNAPSHOT                            [2/3]
+[INFO]   from common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ yourmenu-common ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ yourmenu-common ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ yourmenu-common ---
+[INFO] skip non existing resourceDirectory /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/common/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ yourmenu-common ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 3 source files with javac [debug parameters release 25] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ yourmenu-common ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running tech.miqueias.bento.io.shared.tenant_context.AcessoRestauranteServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s -- in tech.miqueias.bento.io.shared.tenant_context.AcessoRestauranteServiceTest
+[INFO] Running tech.miqueias.bento.io.shared.tenant_context.TenantCleanupTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in tech.miqueias.bento.io.shared.tenant_context.TenantCleanupTest
+[INFO] Running tech.miqueias.bento.io.restaurante.VinculoRestauranteTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in tech.miqueias.bento.io.restaurante.VinculoRestauranteTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ yourmenu-common ---
+[INFO] 
+[INFO] -----------< tech.miqueias_bento.io:yourmenu-identity-admin >-----------
+[INFO] Building yourmenu-identity-admin 1.0.0-SNAPSHOT                    [3/3]
+[INFO]   from identity-admin/pom.xml
+[INFO] ------------------------------[ quarkus ]-------------------------------
+[WARNING] The artifact io.quarkus:quarkus-junit5:jar:3.38.1 has been relocated to io.quarkus:quarkus-junit:jar:3.38.1: Update the artifactId in your project build file. Refer to https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.31 for more information.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ yourmenu-identity-admin ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- quarkus:3.38.1:generate-code (default-generate-code) @ yourmenu-identity-admin ---
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ yourmenu-identity-admin ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ yourmenu-identity-admin ---
+[INFO] skip non existing resourceDirectory /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/identity-admin/src/test/resources
+[INFO] 
+[INFO] --- quarkus:3.38.1:generate-code-tests (default-generate-code-tests) @ yourmenu-identity-admin ---
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ yourmenu-identity-admin ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ yourmenu-identity-admin ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+2026-11-03 02:29:23,686 WARN  [io.quarkus.arc.deployment.SplitPackageProcessor] (build-5) Detected a split package usage which is considered a bad practice and should be avoided. Following packages were detected in multiple archives: 
+- "tech.miqueias.bento.io.restaurante" found in [tech.miqueias_bento.io:yourmenu-common:1.0.0-SNAPSHOT, tech.miqueias_bento.io:yourmenu-identity-admin:1.0.0-SNAPSHOT]
+- "tech.miqueias.bento.io.usuario" found in [tech.miqueias_bento.io:yourmenu-common:1.0.0-SNAPSHOT, tech.miqueias_bento.io:yourmenu-identity-admin:1.0.0-SNAPSHOT]
+- "tech.miqueias.bento.io.colaborador" found in [tech.miqueias_bento.io:yourmenu-common:1.0.0-SNAPSHOT, tech.miqueias_bento.io:yourmenu-identity-admin:1.0.0-SNAPSHOT]
+2026-11-03 02:29:25,692 WARN  [io.quarkus.deployment.jvm] (main) Could not get access to jdk.internal.module API: this is required for Quarkus to adjust Java Modules configuration to match the various requirements of each extension. Please ensure this JVM is launched with --add-opens=java.base/java.lang.invoke=ALL-UNNAMED.
+WARNING: A Java agent has been loaded dynamically (/home/miqueias/.m2/repository/net/bytebuddy/byte-buddy-agent/1.18.8/byte-buddy-agent-1.18.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[INFO] Running tech.miqueias.bento.io.GreetingResourceTest
+2026-11-03 02:29:26,667 INFO  [io.quarkus.amazon.lambda.runtime.MockEventServer] (ForkJoinPool.commonPool-worker-2) Mock Lambda Event Server Started
+2026-11-03 02:29:26,669 INFO  [io.quarkus.deployment.builditem.DevServicesRegistryBuildItem] (ForkJoinPool.commonPool-worker-2) The amazon-lambda dev service is ready to accept connections on localhost:8081/_lambda_
+2026-11-03 02:29:26,932 INFO  [org.hibernate.orm.jpa] (main) HHH008540: Processing PersistenceUnitInfo [name: <default>]
+2026-11-03 02:29:27,067 INFO  [org.hibernate.orm.core] (main) HHH000001: Hibernate ORM core version 7.4.5.Final
+2026-11-03 02:29:27,273 INFO  [org.hibernate.orm.connections.pooling] (main) HHH10001005: Database info:
+	Database JDBC URL [undefined/unknown]
+	Database driver: undefined/unknown
+	Database dialect: PostgreSQLDialect
+	Database version: 14.0
+	Default catalog/schema: unknown/unknown
+	Autocommit mode: undefined/unknown
+	Isolation level: <unknown>
+	JDBC fetch size: undefined/unknown
+	Pool: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-03 02:29:27,464 INFO  [org.hibernate.validator.internal.util.Version] (main) HV000001: Hibernate Validator 9.1.3.Final
+2026-11-03 02:29:29,010 INFO  [io.quarkus.amazon.lambda.runtime.AbstractLambdaPollLoop] (Lambda Thread (TEST)) Listening on: http://localhost:8081/_lambda_/2018-06-01/runtime/invocation/next
+2026-11-03 02:29:29,057 INFO  [io.quarkus] (main) yourmenu-identity-admin 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.38.1) started in 7.306s. 
+2026-11-03 02:29:29,058 INFO  [io.quarkus] (main) Profile test activated. 
+2026-11-03 02:29:29,058 INFO  [io.quarkus] (main) Installed features: [agroal, amazon-lambda, cdi, compose, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-jackson, security, smallrye-context-propagation, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.359 s -- in tech.miqueias.bento.io.GreetingResourceTest
+[INFO] Running tech.miqueias.bento.io.SharedPersistenceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.293 s -- in tech.miqueias.bento.io.SharedPersistenceTest
+2026-11-03 02:29:31,040 WARN  [io.quarkus.amazon.lambda.runtime.AbstractLambdaPollLoop] (Lambda Thread (TEST)) Aborting lambda poll loop: ending dev/test mode
+2026-11-03 02:29:31,040 INFO  [io.quarkus.amazon.lambda.runtime.AbstractLambdaPollLoop] (Lambda Thread (TEST)) Lambda polling thread complete (TEST)
+2026-11-03 02:29:31,066 INFO  [io.quarkus] (main) yourmenu-identity-admin stopped in 0.030s
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- quarkus:3.38.1:build (default-build) @ yourmenu-identity-admin ---
+[WARNING] [io.quarkus.arc.deployment.SplitPackageProcessor] Detected a split package usage which is considered a bad practice and should be avoided. Following packages were detected in multiple archives: 
+- "tech.miqueias.bento.io.colaborador" found in [tech.miqueias_bento.io:yourmenu-common:1.0.0-SNAPSHOT, tech.miqueias_bento.io:yourmenu-identity-admin:1.0.0-SNAPSHOT]
+- "tech.miqueias.bento.io.restaurante" found in [tech.miqueias_bento.io:yourmenu-common:1.0.0-SNAPSHOT, tech.miqueias_bento.io:yourmenu-identity-admin:1.0.0-SNAPSHOT]
+- "tech.miqueias.bento.io.usuario" found in [tech.miqueias_bento.io:yourmenu-common:1.0.0-SNAPSHOT, tech.miqueias_bento.io:yourmenu-identity-admin:1.0.0-SNAPSHOT]
+[INFO] [io.quarkus.deployment.pkg.jar.LegacyThinJarBuilder] Building thin jar: /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/identity-admin/target/yourmenu-identity-admin-1.0.0-SNAPSHOT-runner.jar
+[WARNING] [io.quarkus.deployment.pkg.jar.ParallelCommonsCompressArchiveCreator] Duplicate entry 'io/quarkus/hibernate/orm/panache/PanacheEntity.class': already added from 'Unknown source', ignoring entry from 'Current application'
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 6555ms
+[INFO] 
+[INFO] --- failsafe:3.5.6:integration-test (default) @ yourmenu-identity-admin ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running tech.miqueias.bento.io.GreetingResourceIT
+2026-11-03 02:29:45,241 INFO  [io.quarkus.amazon.lambda.runtime.MockEventServer] (ForkJoinPool.commonPool-worker-2) Mock Lambda Event Server Started
+2026-11-03 02:29:45,244 INFO  [io.quarkus.deployment.builditem.DevServicesRegistryBuildItem] (ForkJoinPool.commonPool-worker-2) The amazon-lambda dev service is ready to accept connections on localhost:8081/_lambda_
+Executing "/usr/lib/jvm/java-25-openjdk-amd64/bin/java -Dquarkus.http.port=8081 -Dquarkus.http.ssl-port=8444 -Dtest.url=http://localhost:${quarkus.http.test-port:8081} -Dquarkus.log.file.path=/home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/identity-admin/target/quarkus.log -Dquarkus.log.file.enabled=true -Dquarkus.log.category."io.quarkus".level=INFO -Dquarkus.profile=prod -Dmp.jwt.verify.publickey=NONE -Dquarkus-internal.aws-lambda.test-api=localhost:8081/_lambda_ -Dquarkus.lambda.mock-event-server.test-port=8081 -Dsmallrye.jwt.sign.key=NONE -jar /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/identity-admin/target/yourmenu-identity-admin-1.0.0-SNAPSHOT-runner.jar"
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-11-03 02:29:49,670 INFO  [io.quarkus] (main) yourmenu-identity-admin 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.38.1) started in 3.331s. 
+2026-11-03 02:29:49,674 INFO  [io.quarkus] (main) Profile prod activated. 
+2026-11-03 02:29:49,674 INFO  [io.quarkus] (main) Installed features: [agroal, amazon-lambda, cdi, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-jackson, security, smallrye-context-propagation, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
+2026-11-03 02:29:49,677 INFO  [io.quarkus.amazon.lambda.runtime.AbstractLambdaPollLoop] (Lambda Thread (NORMAL)) Listening on: http://localhost:8081/_lambda_/2018-06-01/runtime/invocation/next
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.703 s -- in tech.miqueias.bento.io.GreetingResourceIT
+2026-11-03 02:29:51,457 INFO  [io.quarkus.amazon.lambda.runtime.MockEventServer] (main) Stopping Mock Lambda Event Server
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- quarkus:3.38.1:native-image-agent (default-native-image-agent) @ yourmenu-identity-admin ---
+[INFO] 
+[INFO] --- quarkus:3.38.1:build-enhanced-artifact (default-build-enhanced-artifact) @ yourmenu-identity-admin ---
+[INFO] 
+[INFO] --- failsafe:3.5.6:verify (default) @ yourmenu-identity-admin ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for yourmenu-modular 1.0.0-SNAPSHOT:
+[INFO] 
+[INFO] yourmenu-modular ................................... SUCCESS [  0.002 s]
+[INFO] yourmenu-common .................................... SUCCESS [  3.567 s]
+[INFO] yourmenu-identity-admin ............................ SUCCESS [ 34.420 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  39.462 s
+[INFO] Finished at: 2026-11-03T02:29:51-03:00
+[INFO] ------------------------------------------------------------------------

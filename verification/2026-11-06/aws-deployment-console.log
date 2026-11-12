@@ -1,0 +1,10 @@
+Preflight OK: native ZIPs, key pair, AWS identity, DB settings, VPC and names
+Layer created: yourmenu-modular-jwt-public version 1
+Layer created: yourmenu-modular-jwt-private version 1
+Function created: yourmenu-modular-identity-admin
+Environment configured: yourmenu-modular-identity-admin
+Function created: yourmenu-modular-commerce
+Environment configured: yourmenu-modular-commerce
+HTTP API created: yox4i6hq9k
+HTTP API ready: https://yox4i6hq9k.execute-api.us-east-1.amazonaws.com
+Deployment state saved: /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/verification/2026-11-06/aws-deployment-state.json

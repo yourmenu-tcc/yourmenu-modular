@@ -1,0 +1,39 @@
+__  ____  __  _____   ___  __ ____  ______ 
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
+ -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
+2026-11-06 00:14:14,579 INFO  [io.quarkus] (main) yourmenu-commerce 1.0.0-SNAPSHOT native (powered by Quarkus 3.38.1) started in 0.181s. 
+2026-11-06 00:14:14,579 INFO  [io.quarkus] (main) Profile prod activated. 
+2026-11-06 00:14:14,579 INFO  [io.quarkus] (main) Installed features: [agroal, amazon-lambda, cdi, hibernate-orm, hibernate-orm-panache, hibernate-validator, jdbc-postgresql, narayana-jta, rest, rest-jackson, security, smallrye-context-propagation, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
+2026-11-06 00:14:14,594 ERROR [io.quarkus.amazon.lambda.runtime.AbstractLambdaPollLoop] (Lambda Thread (NORMAL)) Error running lambda (NORMAL) [Error Occurred After Shutdown]: java.net.SocketException: Socket closed
+	at java.base@25.0.5/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base@25.0.5/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at java.base@25.0.5/sun.net.www.protocol.http.HttpURLConnection.getChainedException(HttpURLConnection.java:1795)
+	at java.base@25.0.5/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1325)
+	at java.base@25.0.5/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1306)
+	at java.base@25.0.5/java.net.HttpURLConnection.getResponseCode(HttpURLConnection.java:493)
+	at io.quarkus.amazon.lambda.runtime.AbstractLambdaPollLoop$1.run(AbstractLambdaPollLoop.java:106)
+	at java.base@25.0.5/java.lang.Thread.runWith(Thread.java:1487)
+	at java.base@25.0.5/java.lang.Thread.run(Thread.java:1474)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:832)
+	at org.graalvm.nativeimage.builder/com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:808)
+Caused by: java.net.SocketException: Socket closed
+	at java.base@25.0.5/sun.nio.ch.NioSocketImpl.endRead(NioSocketImpl.java:242)
+	at java.base@25.0.5/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:321)
+	at java.base@25.0.5/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:354)
+	at java.base@25.0.5/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:798)
+	at java.base@25.0.5/java.net.Socket$SocketInputStream.implRead(Socket.java:974)
+	at java.base@25.0.5/java.net.Socket$SocketInputStream.read(Socket.java:964)
+	at java.base@25.0.5/java.io.BufferedInputStream.fill(BufferedInputStream.java:289)
+	at java.base@25.0.5/java.io.BufferedInputStream.read1(BufferedInputStream.java:330)
+	at java.base@25.0.5/java.io.BufferedInputStream.read(BufferedInputStream.java:388)
+	at java.base@25.0.5/sun.net.www.http.HttpClient.parseHTTPHeader(HttpClient.java:803)
+	at java.base@25.0.5/sun.net.www.http.HttpClient.parseHTTP(HttpClient.java:735)
+	at java.base@25.0.5/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1403)
+	at java.base@25.0.5/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1306)
+	at java.base@25.0.5/sun.net.www.protocol.http.HttpURLConnection.getHeaderField(HttpURLConnection.java:2922)
+	at io.quarkus.amazon.lambda.runtime.AbstractLambdaPollLoop$1.run(AbstractLambdaPollLoop.java:102)
+	... 4 more
+
+2026-11-06 00:14:14,594 INFO  [io.quarkus.amazon.lambda.runtime.AbstractLambdaPollLoop] (Lambda Thread (NORMAL)) Lambda polling thread complete (NORMAL)
+2026-11-06 00:14:14,595 INFO  [io.quarkus] (Shutdown thread) yourmenu-commerce stopped in 0.002s

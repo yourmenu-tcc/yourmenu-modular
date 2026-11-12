@@ -1,0 +1,120 @@
+{
+  "checked_at_utc": "2026-11-06T04:29:30.327498+00:00",
+  "api_id": "yox4i6hq9k",
+  "api_url": "https://yox4i6hq9k.execute-api.us-east-1.amazonaws.com",
+  "functions": {
+    "identity-admin": {
+      "name": "yourmenu-modular-identity-admin",
+      "state": "Active",
+      "last_update_status": "Successful",
+      "runtime": "provided.al2023",
+      "architecture": [
+        "x86_64"
+      ],
+      "memory_mb": 1024,
+      "timeout_seconds": 10,
+      "vpc_id": "vpc-07b04431343f7d0cd",
+      "layers": [
+        "arn:aws:lambda:us-east-1:778081807833:layer:yourmenu-modular-jwt-public:1",
+        "arn:aws:lambda:us-east-1:778081807833:layer:yourmenu-modular-jwt-private:1"
+      ],
+      "environment_keys": [
+        "DB_HOST",
+        "DB_NAME",
+        "DB_PASSWORD",
+        "DB_PORT",
+        "DB_SSLMODE",
+        "DB_USERNAME",
+        "DISABLE_SIGNAL_HANDLERS",
+        "JWT_PRIVATE_KEY_LOCATION",
+        "JWT_PUBLIC_KEY_LOCATION"
+      ],
+      "code_sha256_matches_archived_zip": true
+    },
+    "commerce": {
+      "name": "yourmenu-modular-commerce",
+      "state": "Active",
+      "last_update_status": "Successful",
+      "runtime": "provided.al2023",
+      "architecture": [
+        "x86_64"
+      ],
+      "memory_mb": 1024,
+      "timeout_seconds": 10,
+      "vpc_id": "vpc-07b04431343f7d0cd",
+      "layers": [
+        "arn:aws:lambda:us-east-1:778081807833:layer:yourmenu-modular-jwt-public:1"
+      ],
+      "environment_keys": [
+        "DB_HOST",
+        "DB_NAME",
+        "DB_PASSWORD",
+        "DB_PORT",
+        "DB_SSLMODE",
+        "DB_USERNAME",
+        "DISABLE_SIGNAL_HANDLERS",
+        "JWT_PUBLIC_KEY_LOCATION"
+      ],
+      "code_sha256_matches_archived_zip": true
+    }
+  },
+  "routes": [
+    {
+      "route": "$default",
+      "authorization": "NONE",
+      "target": "integrations/yl4k9am"
+    },
+    {
+      "route": "ANY /api/auth/{proxy+}",
+      "authorization": "AWS_IAM",
+      "target": "integrations/sn1qoj1"
+    },
+    {
+      "route": "ANY /api/restaurante",
+      "authorization": "NONE",
+      "target": "integrations/sn1qoj1"
+    },
+    {
+      "route": "ANY /api/restaurante/{proxy+}",
+      "authorization": "NONE",
+      "target": "integrations/sn1qoj1"
+    },
+    {
+      "route": "ANY /api/restaurantes/{restauranteId}/colaboradores",
+      "authorization": "NONE",
+      "target": "integrations/sn1qoj1"
+    },
+    {
+      "route": "ANY /api/restaurantes/{restauranteId}/colaboradores/{proxy+}",
+      "authorization": "NONE",
+      "target": "integrations/sn1qoj1"
+    },
+    {
+      "route": "ANY /api/usuarios",
+      "authorization": "NONE",
+      "target": "integrations/sn1qoj1"
+    },
+    {
+      "route": "ANY /api/usuarios/{proxy+}",
+      "authorization": "NONE",
+      "target": "integrations/sn1qoj1"
+    },
+    {
+      "route": "GET /api/auth/test-auth",
+      "authorization": "NONE",
+      "target": "integrations/sn1qoj1"
+    },
+    {
+      "route": "POST /api/auth/login",
+      "authorization": "NONE",
+      "target": "integrations/sn1qoj1"
+    },
+    {
+      "route": "POST /api/auth/registrar",
+      "authorization": "AWS_IAM",
+      "target": "integrations/sn1qoj1"
+    }
+  ],
+  "stage": true,
+  "rds_status": "available"
+}

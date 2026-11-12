@@ -1,0 +1,164 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] yourmenu-modular                                                   [pom]
+[INFO] yourmenu-common                                                    [jar]
+[INFO] yourmenu-commerce                                              [quarkus]
+[INFO] 
+[INFO] --------------< tech.miqueias_bento.io:yourmenu-modular >---------------
+[INFO] Building yourmenu-modular 1.0.0-SNAPSHOT                           [1/3]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] ---------------< tech.miqueias_bento.io:yourmenu-common >---------------
+[INFO] Building yourmenu-common 1.0.0-SNAPSHOT                            [2/3]
+[INFO]   from common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ yourmenu-common ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ yourmenu-common ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ yourmenu-common ---
+[INFO] skip non existing resourceDirectory /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/common/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ yourmenu-common ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 3 source files with javac [debug parameters release 25] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ yourmenu-common ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ yourmenu-common ---
+[INFO] 
+[INFO] --------------< tech.miqueias_bento.io:yourmenu-commerce >--------------
+[INFO] Building yourmenu-commerce 1.0.0-SNAPSHOT                          [3/3]
+[INFO]   from commerce/pom.xml
+[INFO] ------------------------------[ quarkus ]-------------------------------
+[WARNING] The artifact io.quarkus:quarkus-junit5:jar:3.38.1 has been relocated to io.quarkus:quarkus-junit:jar:3.38.1: Update the artifactId in your project build file. Refer to https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.31 for more information.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ yourmenu-commerce ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- quarkus:3.38.1:generate-code (default-generate-code) @ yourmenu-commerce ---
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ yourmenu-commerce ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ yourmenu-commerce ---
+[INFO] skip non existing resourceDirectory /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/commerce/src/test/resources
+[INFO] 
+[INFO] --- quarkus:3.38.1:generate-code-tests (default-generate-code-tests) @ yourmenu-commerce ---
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ yourmenu-commerce ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ yourmenu-commerce ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- quarkus:3.38.1:build (default-build) @ yourmenu-commerce ---
+[INFO] [io.quarkus.deployment.pkg.jar.NativeImageSourceJarBuilder] Building native image source jar: /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/commerce/target/yourmenu-commerce-1.0.0-SNAPSHOT-native-image-source-jar/yourmenu-commerce-1.0.0-SNAPSHOT-runner.jar
+[WARNING] [io.quarkus.deployment.pkg.jar.ParallelCommonsCompressArchiveCreator] Duplicate entry 'io/quarkus/hibernate/orm/panache/PanacheEntity.class': already added from 'Unknown source', ignoring entry from 'Current application'
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildStep] Building native image from /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/commerce/target/yourmenu-commerce-1.0.0-SNAPSHOT-native-image-source-jar/yourmenu-commerce-1.0.0-SNAPSHOT-runner.jar
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildContainerRunner] Using docker to run the native image builder
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildContainerRunner] Checking status of builder image 'quay.io/quarkus/ubi9-quarkus-mandrel-builder-image:jdk-25'
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildContainerRunner] Found builder image 'quay.io/quarkus/ubi9-quarkus-mandrel-builder-image:jdk-25' locally, skipping image pulling
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildStep] Running Quarkus native-image plugin on MANDREL 25.0.5.0 JDK 25.0.5+8-LTS
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildRunner] docker run --env LANG=C --rm --user 1000:1000 -v /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/commerce/target/yourmenu-commerce-1.0.0-SNAPSHOT-native-image-source-jar:/project:z --name build-native-jctof quay.io/quarkus/ubi9-quarkus-mandrel-builder-image:jdk-25 -J-DCoordinatorEnvironmentBean.transactionStatusManagerEnable=false -J-Dsun.nio.ch.maxUpdateArraySize=100 -J-Djava.util.logging.manager=org.jboss.logmanager.LogManager -J-Dvertx.logger-delegate-factory-class-name=io.quarkus.vertx.core.runtime.VertxLogDelegateFactory -J-Dvertx.disableDnsResolver=true -J-Dio.netty.tryReflectionSetAccessible=true -J-Dio.netty.noUnsafe=false -J-Dio.netty.leakDetection.level=DISABLED -J-Dio.netty.allocator.maxOrder=3 -J-Duser.language=pt -J-Duser.country=BR -J-Dlogging.initial-configurator.min-level=500 -H:+UnlockExperimentalVMOptions -H:IncludeLocales=pt-BR -H:-UnlockExperimentalVMOptions --enable-native-access=ALL-UNNAMED -J-Dfile.encoding=UTF-8 -J--add-exports=org.graalvm.nativeimage.builder/com.oracle.svm.core.jdk=ALL-UNNAMED --features=io.quarkus.hibernate.validator.runtime.DisableLoggingFeature,io.quarkus.jdbc.postgresql.runtime.graal.SQLXMLFeature,io.quarkus.hibernate.orm.runtime.graal.RegisterStateManagementForReflectionFeature,io.quarkus.hibernate.orm.runtime.graal.RegisterServicesForReflectionFeature,io.quarkus.hibernate.orm.runtime.graal.DisableLoggingFeature,org.hibernate.graalvm.internal.GraalVMStaticFeature,io.quarkus.caffeine.runtime.graal.CacheConstructorsFeature,io.quarkus.runner.Feature,io.quarkus.runtime.graal.DisableLoggingFeature,io.quarkus.runtime.graal.JVMChecksFeature,io.quarkus.runtime.graal.SkipConsoleServiceProvidersFeature,io.quarkus.jackson.runtime.graal.JacksonSerializerRegistrationFeature -J--add-exports=java.security.jgss/sun.security.krb5=ALL-UNNAMED -J--add-exports=java.security.jgss/sun.security.jgss=ALL-UNNAMED -J--add-opens=java.base/java.text=ALL-UNNAMED -J--add-opens=java.base/java.io=ALL-UNNAMED -J--add-opens=java.base/java.lang.invoke=ALL-UNNAMED -J--add-opens=java.base/java.util=ALL-UNNAMED -H:+UnlockExperimentalVMOptions -H:BuildOutputJSONFile=yourmenu-commerce-1.0.0-SNAPSHOT-runner-build-output-stats.json -H:-UnlockExperimentalVMOptions -H:+UnlockExperimentalVMOptions -H:+GenerateBuildArtifactsFile -H:-UnlockExperimentalVMOptions --parallelism=2 -H:+UnlockExperimentalVMOptions -H:+AllowFoldMethods -H:-UnlockExperimentalVMOptions -J-Djava.awt.headless=true --no-fallback --link-at-build-time -H:+UnlockExperimentalVMOptions -H:+ReportExceptionStackTraces -H:-UnlockExperimentalVMOptions -J-Xmx3600m -H:-AddAllCharsets --enable-url-protocols=http,https -march=x86-64-v2 --enable-monitoring=heapdump,threaddump -H:+UnlockExperimentalVMOptions -H:-UseServiceLoaderFeature -H:-UnlockExperimentalVMOptions -J--add-exports=org.graalvm.nativeimage/org.graalvm.nativeimage.impl=ALL-UNNAMED --exclude-config io\.netty\.netty-codec /META-INF/native-image/io\.netty/netty-codec/generated/handlers/reflect-config\.json --exclude-config io\.netty\.netty-handler /META-INF/native-image/io\.netty/netty-handler/generated/handlers/reflect-config\.json -o yourmenu-commerce-1.0.0-SNAPSHOT-runner -jar yourmenu-commerce-1.0.0-SNAPSHOT-runner.jar
+Warning: Option 'DynamicProxyConfigurationResources' is deprecated and might be removed in a future release: This can be caused by a proxy-config.json file in your META-INF directory. Consider including proxy configuration in the reflection section of reachability-metadata.md instead.. Please refer to the GraalVM release notes.
+========================================================================================================================
+GraalVM Native Image: Generating 'yourmenu-commerce-1.0.0-SNAPSHOT-runner' (executable)...
+========================================================================================================================
+For detailed information and explanations on the build output, visit:
+https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/BuildOutput.md
+------------------------------------------------------------------------------------------------------------------------
+[1/8] Initializing...                                                                                   (11,1s @ 0,24GB)
+ Java version: 25.0.5+8-LTS, vendor version: Mandrel-25.0.5.0-Final
+ Graal compiler: optimization level: 2, target machine: x86-64-v2
+ C compiler: gcc (redhat, x86_64, 11.5.0)
+ Garbage collector: Serial GC (max heap size: 80% of RAM)
+ 14 user-specific feature(s):
+ - com.oracle.svm.thirdparty.gson.GsonFeature
+ - io.quarkus.caffeine.runtime.graal.CacheConstructorsFeature
+ - io.quarkus.hibernate.orm.runtime.graal.DisableLoggingFeature: Disables INFO logging during the analysis phase
+ - io.quarkus.hibernate.orm.runtime.graal.RegisterServicesForReflectionFeature: Makes methods of reachable Hibernate services accessible through Class#getMethods()
+ - io.quarkus.hibernate.orm.runtime.graal.RegisterStateManagementForReflectionFeature: Makes fields of reachable Hibernate StateManagement implementations accessible through Class#getDeclaredField()
+ - io.quarkus.hibernate.validator.runtime.DisableLoggingFeature: Disables INFO logging during the analysis phase for the [org.hibernate.validator.internal.util.Version] categories
+ - io.quarkus.jackson.runtime.graal.JacksonSerializerRegistrationFeature: Conditionally registers Jackson SQL/XML serializers for reflection based on reachability
+ - io.quarkus.jdbc.postgresql.runtime.graal.SQLXMLFeature
+ - io.quarkus.runner.Feature: Auto-generated class by Quarkus from the existing extensions
+ - io.quarkus.runtime.graal.DisableLoggingFeature: Adapts logging during the analysis phase
+ - io.quarkus.runtime.graal.JVMChecksFeature
+ - io.quarkus.runtime.graal.SkipConsoleServiceProvidersFeature: Skip unsupported console service providers when quarkus.native.auto-service-loader-registration is false
+ - org.eclipse.angus.activation.nativeimage.AngusActivationFeature
+ - org.hibernate.graalvm.internal.GraalVMStaticFeature: Hibernate ORM's static reflection registrations for GraalVM
+------------------------------------------------------------------------------------------------------------------------
+ 5 experimental option(s) unlocked:
+ - '-H:+AllowFoldMethods' (origin(s): command line)
+ - '-H:BuildOutputJSONFile' (origin(s): command line)
+ - '-H:-UseServiceLoaderFeature' (origin(s): command line)
+ - '-H:+GenerateBuildArtifactsFile' (origin(s): command line)
+ - '-H:AddOpens' (alternative API option(s): --add-opens java.base/java.lang=ALL-UNNAMED, --add-opens java.base/java.nio=ALL-UNNAMED, --add-opens java.base/jdk.internal.misc=ALL-UNNAMED; origin(s): command line)
+------------------------------------------------------------------------------------------------------------------------
+Build resources:
+ - 3,36GB of memory (45,0% of system memory, set via '-Xmx3600m')
+ - 2 thread(s) (12,5% of 16 available processor(s), set via '--parallelism=2')
+[2/8] Performing analysis...  [*****]                                                                   (73,2s @ 2,44GB)
+   24.050 types,  30.800 fields, and 113.432 methods found reachable
+    7.940 types,     651 fields, and   9.054 methods registered for reflection
+       63 types,      69 fields, and      55 methods registered for JNI access
+        0 downcalls and 0 upcalls registered for foreign access
+        4 native libraries: dl, pthread, rt, z
+[3/8] Building universe...                                                                              (16,0s @ 2,51GB)
+[4/8] Parsing methods...      [***]                                                                      (7,5s @ 1,58GB)
+[5/8] Inlining methods...     [****]                                                                     (4,6s @ 1,91GB)
+[6/8] Compiling methods...    [********]                                                                (66,8s @ 2,69GB)
+[7/8] Laying out methods...   [***]                                                                      (9,2s @ 2,79GB)
+[8/8] Creating image...       [***]                                                                     (10,2s @ 3,25GB)
+  46,25MB (43,16%) for code area:    76.614 compilation units
+  53,87MB (50,28%) for image heap:  536.511 objects and 135 resources
+   7,03MB ( 6,56%) for other data
+ 107,15MB in total image size, 100,51MB in total file size
+------------------------------------------------------------------------------------------------------------------------
+Top 10 origins of code area:                                Top 10 object types in image heap:
+  13,48MB java.base                                           13,05MB byte[] for code metadata
+  10,04MB org.hibernate.orm.hibernate-core-7.4.5.Final.jar     7,12MB byte[] for java.lang.String
+   2,58MB yourmenu-commerce-1.0.0-SNAPSHOT-runner.jar          6,10MB byte[] for general heap data
+   2,35MB svm.jar (Native Image)                               4,81MB com.oracle.svm.core.hub.DynamicHubCompanion
+   1,70MB org.postgresql.postgresql-42.7.13.jar                4,53MB java.lang.String
+   1,48MB c.f.jackson.core.jackson-databind-2.22.0.jar         3,72MB java.lang.Class
+   1,09MB jdk.proxy4                                           1,04MB java.lang.Object[]
+ 610,92kB o.jboss.narayana.jta.narayana-jta-7.3.4.Final.jar  982,66kB java.lang.reflect.Method
+ 586,64kB com.fasterxml.jackson.core.jackson-core-2.22.0.jar 910,08kB java.util.HashMap$Node
+ 514,25kB io.quarkus.quarkus-vertx-http-3.38.1.jar           857,84kB c.o.svm.core.hub.DynamicHub$ReflectionMetadata
+  10,63MB for 152 more packages                               10,76MB for 5804 more object types
+------------------------------------------------------------------------------------------------------------------------
+Recommendations:
+ FUTR: Use '--future-defaults=all' to prepare for future releases.
+ HEAP: Set max heap for improved and more predictable memory usage.
+------------------------------------------------------------------------------------------------------------------------
+                       16,0s (7,9% of total time) in 1633 GCs | Peak RSS: 4,83GB | CPU load: 3,55
+------------------------------------------------------------------------------------------------------------------------
+Build artifacts:
+ /project/build-artifacts.json (build_info)
+ /project/yourmenu-commerce-1.0.0-SNAPSHOT-runner (executable)
+ /project/yourmenu-commerce-1.0.0-SNAPSHOT-runner-build-output-stats.json (build_info)
+========================================================================================================================
+Finished generating 'yourmenu-commerce-1.0.0-SNAPSHOT-runner' in 3m 23s.
+[INFO] [io.quarkus.deployment.pkg.steps.NativeImageBuildRunner] docker run --env LANG=C --rm --user 1000:1000 -v /home/miqueias/Documentos/UFC/7o Semestre/Trabalho de Conclusão de Curso I/Repositórios-TCC/yourmenu-modular/commerce/target/yourmenu-commerce-1.0.0-SNAPSHOT-native-image-source-jar:/project:z --entrypoint /bin/bash quay.io/quarkus/ubi9-quarkus-mandrel-builder-image:jdk-25 -c objcopy --strip-debug yourmenu-commerce-1.0.0-SNAPSHOT-runner
+[INFO] [io.quarkus.deployment.QuarkusAugmentor] Quarkus augmentation completed in 221492ms
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for yourmenu-modular 1.0.0-SNAPSHOT:
+[INFO] 
+[INFO] yourmenu-modular ................................... SUCCESS [  0.001 s]
+[INFO] yourmenu-common .................................... SUCCESS [  2.295 s]
+[INFO] yourmenu-commerce .................................. SUCCESS [03:44 min]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  03:48 min
+[INFO] Finished at: 2026-11-05T23:22:07-03:00
+[INFO] ------------------------------------------------------------------------

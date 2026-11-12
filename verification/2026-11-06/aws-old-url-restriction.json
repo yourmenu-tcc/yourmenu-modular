@@ -1,0 +1,25 @@
+{
+  "checked_at_utc": "2026-11-06T04:35:11.872404+00:00",
+  "region": "us-east-1",
+  "function": "yourmenu-quarkus-serverless",
+  "auth_type": "AWS_IAM",
+  "function_url": "https://qebc3eoy2dfe7pwpo6rjxeanvi0bprjn.lambda-url.us-east-1.on.aws/",
+  "anonymous_registration_probe": {
+    "method": "POST",
+    "path": "/api/auth/registrar",
+    "body": "{}",
+    "http_status": 403
+  },
+  "anonymous_auth_probe": {
+    "method": "GET",
+    "path": "/api/auth/test-auth",
+    "http_status": 403
+  },
+  "iam_signed_auth_probe": {
+    "method": "GET",
+    "path": "/api/auth/test-auth",
+    "signature": "AWS SigV4, credentials not recorded",
+    "http_status": 200
+  },
+  "note": "Probe used invalid data and did not create an account."
+}

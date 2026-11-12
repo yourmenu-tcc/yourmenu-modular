@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "checks": [
+    "Identity route: HTTP 200",
+    "Public commerce route and database: HTTP 200",
+    "Protected zones without JWT: HTTP 401",
+    "Anonymous administrator registration blocked by IAM: HTTP 403",
+    "Registration with trailing slash blocked by IAM: HTTP 403",
+    "Encoded registration path blocked by IAM: HTTP 403",
+    "CORS preflight: HTTP 200",
+    "Temporary account created through IAM Lambda invoke: HTTP 201",
+    "Login through HTTP API: HTTP 200",
+    "Identity JWT validation: HTTP 200",
+    "Commerce validates JWT issued by identity: HTTP 200",
+    "Order summary through HTTP API: HTTP 200",
+    "Temporary account removed: HTTP 204"
+  ]
+}

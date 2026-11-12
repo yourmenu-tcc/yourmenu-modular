@@ -2,6 +2,8 @@
 
 Terceira implementação experimental, com Java 25, Quarkus 3.38.1, PostgreSQL e duas aplicações Lambda HTTP. A base é `../yourmenu-serverless`; os dois projetos originais não são dependências Maven deste projeto.
 
+**Estado em 06/11/2026:** os dois builds nativos, 68 verificações funcionais locais e 13 verificações na AWS passaram. As duas funções nativas estão implantadas em `us-east-1` sob uma HTTP API única: `https://yox4i6hq9k.execute-api.us-east-1.amazonaws.com`. Resultados, hashes, recursos e limitações estão em [`verification/2026-11-06/README.md`](verification/2026-11-06/README.md). O relatório da fase 1 e seu risco de tenant são históricos; a correção posterior passou nos testes A/B. Os templates SAM JVM gerados declaram Java 21, enquanto este projeto compila para Java 25.
+
 | Módulo | Conteúdo | Java de produção |
 |---|---|---:|
 | `common` | Usuário, restaurante, vínculo e seus repositórios; roles/status; filtros e contexto tenant; exceções; definição OpenAPI | 16 |
@@ -70,10 +72,10 @@ O perfil `native` está disponível; compilação JVM não aprova a compilação
 
 Esses comandos substituem os artefatos nos respectivos `target`; execute novamente o build JVM antes do script local. Após uma compilação nativa bem-sucedida, ainda é necessário executar testes funcionais com os binários nativos. O relatório de entrega em `../docs/manutenibilidade/implementacao_modular_fase1.md` registra o que realmente foi validado.
 
-## Risco herdado confirmado
+## Risco registrado na fase 1
 
-A validação reproduziu uma falha do código de referência: um gerente de A pode ler zonas de B com caminho de B e `X-Restaurante-Id: A`. O filtro valida o cabeçalho, enquanto a consulta usa o caminho sem repetir a autorização. A fonte foi preservada nesta decomposição; o relatório registra esse risco e a decisão necessária sobre correção consistente nas variantes. O isolamento completo e a implantação não estão aprovados.
+A validação inicial reproduziu uma falha do código de referência: um gerente de A podia ler zonas de B com caminho de B e `X-Restaurante-Id: A`. Essa observação pertence ao relatório histórico da fase 1. A correção posterior passou nos cenários A/B da validação local de 03/11/2026 e nas verificações nativas de 06/11/2026. A versão modular foi implantada na AWS em 06/11/2026.
 
-## Implantação posterior
+## Implantação AWS
 
-A fase 1 não cria infraestrutura. Uma futura solicitação deve definir o roteamento de `/api/auth`, `/api/usuarios`, `/api/restaurante` e colaboradores para identity-admin, e categorias/pratos/zonas/pedidos para commerce, mantendo os métodos e subcaminhos. Planejar somente `us-east-1`, mesmo banco, segredos externos, permissões, rede, esquema preparado, conexões e limites de concorrência. Não pressupor que dois templates SAM gerados isoladamente forneçam um endpoint público único.
+A fase 1 não criou infraestrutura. A implantação posterior usou a AWS CLI e criou duas Lambdas, uma HTTP API única e camadas separadas para as chaves JWT. `identity-admin` recebe autenticação, usuários, restaurante e colaboradores; `commerce` recebe categorias, pratos, zonas e pedidos. Ambas usam o RDS existente em `us-east-1`. Na API modular, login e teste de autenticação têm rotas públicas específicas; os demais caminhos de `/api/auth`, incluindo cadastro, exigem AWS IAM. A Function URL da versão serverless antiga está pública, conforme a configuração anterior. Veja o [relatório de implantação](verification/2026-11-06/README.md) e os scripts em `scripts/`.
